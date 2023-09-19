@@ -20,7 +20,7 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text("User Details Page")),
+        appBar: AppBar(title: const Text("Place List")),
         body: Center(
           child: FutureBuilder<List<Place>>(
             future: futurePlaces,
@@ -31,6 +31,8 @@ class _HomepageState extends State<Homepage> {
                     itemBuilder: (context, index) {
                       Place place = snapshot.data![index];
                       return ListTile(
+                        leading:
+                            Image.network(place.imageUrl),
                         title: Text(place.placeName),
                         subtitle:
                             Text('Rating:${place.placeRating}'),
